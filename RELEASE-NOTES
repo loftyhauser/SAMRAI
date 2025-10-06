@@ -58,6 +58,10 @@ handle much larger buffer sizes.
 
 1) The recommended minimum C++ standard is now C++ 17.
 
+2) If SAMRAI is configured to use Caliper, the #define macro created in
+the generated header SAMRAI_config.h is changed from HAVE_CALIPER to
+SAMRAI_HAVE_CALIPER.
+
 -----------------------------------------------------------------------------
                 Details about what's new
 -----------------------------------------------------------------------------
