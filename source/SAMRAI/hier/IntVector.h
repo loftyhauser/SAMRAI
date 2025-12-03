@@ -1113,7 +1113,7 @@ public:
     *        with the provided name.
     *
     */
-   virtual void
+   void
    putToRestart(
       tbox::Database& restart_db,
       const std::string& name) const;
@@ -1123,7 +1123,7 @@ public:
     *        state from the specified restart database.
     *
     */
-   virtual void
+   void
    getFromRestart(
       tbox::Database& restart_db,
       const std::string& name);
