@@ -15,6 +15,8 @@
 
 #include "SAMRAI/tbox/Dimension.h"
 
+#include <array>
+
 namespace SAMRAI {
 namespace tbox {
 

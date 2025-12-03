@@ -99,6 +99,31 @@ public:
       const Box& box);
 
    /*!
+    * Move constructor
+    */
+   Box(Box&& box) noexcept
+   : d_lo(std::move(box.d_lo)),
+     d_hi(std::move(box.d_hi)),
+     d_block_id(std::move(box.d_block_id)),
+     d_id(std::move(box.d_id)),
+     d_id_locked(false),
+     d_empty_flag(box.d_empty_flag)
+   {
+      box.d_id_locked = false;
+      box.d_empty_flag = EmptyBoxState::BOX_UNKNOWN;
+
+#ifdef BOX_TELEMETRY
+      // Increment the cumulative constructed count, active box count and reset
+      // the high water mark of active boxes if necessary.
+      ++s_cumulative_constructed_ct;
+      ++s_active_ct;
+      if (s_active_ct > s_high_water) {
+         s_high_water = s_active_ct;
+      }
+#endif
+   }
+
+   /*!
     * Construct a Box from a DatabaseBox.
     */
    explicit Box(
