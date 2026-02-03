@@ -577,7 +577,7 @@ private:
      d_ordered(other.d_ordered),
      d_tree(std::move(other.d_tree))
    {
-      // No additional work needed; moved-from object is left valid but empty.
+      // No additional work needed.
    }
 
    /*!
@@ -599,7 +599,6 @@ private:
          d_set = std::move(other.d_set);
          d_ordered = other.d_ordered;
          d_tree = std::move(other.d_tree);
-         // Moved-from object is left valid but empty.
       }
       return *this;
    }

@@ -362,7 +362,7 @@ public:
    void
    setLocalId(const LocalId& local_id) noexcept
    {
-      return d_id.initialize(local_id, d_id.getOwnerRank(), d_id.getPeriodicId());
+      d_id.initialize(local_id, d_id.getOwnerRank(), d_id.getPeriodicId());
    }
 
    //! @brief Get the LocalId.
